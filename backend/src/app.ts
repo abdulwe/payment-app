@@ -8,4 +8,5 @@ app.get("/", (req, res)=>{
     res.send("Welcome to the Kiddo Fintech API")
 })
 app.use("/api/users/register", userRouter);
+
 export default app;
