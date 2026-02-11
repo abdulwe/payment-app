@@ -1,6 +1,11 @@
 import { Router } from "express";
-import { homePage } from "../controllers/user.controller";
+import {authMiddleware} from "../middleware/auth.middleware";
+import {profile} from "../controllers/user.controller";
+
+
 
 const userRouter = Router();
-userRouter.post("/", homePage)
+
+userRouter.get("/profile", authMiddleware, profile);
+
 export default userRouter;
