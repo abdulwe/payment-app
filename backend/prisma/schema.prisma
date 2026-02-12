@@ -23,6 +23,7 @@ model User {
   isActive Boolean @default(true)
 
   wallets Wallet[]
+  transactions Transaction[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -37,4 +38,14 @@ model Wallet {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+model Transaction {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @db.ObjectId
+  amount Float
+  description String
+  category  String?
 
+
+  createdAt DateTime @default(now())
+   user User @relation(fields: [userId], references: [id])
+}
