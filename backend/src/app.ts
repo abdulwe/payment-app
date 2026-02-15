@@ -5,6 +5,8 @@ import userRouter  from "./routers/user.router";
 import authRouter  from "./routers/auth.router";
 import aiRouter  from "./routers/ai.route";
 import transactionRouter from "./routers/transaction.route";
+import walletrouter from "./routers/wallet.router";
+
 
 const app = express();
 import dotenv from "dotenv";
@@ -27,5 +29,6 @@ app.use("/api/users/", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/ai", aiRouter);
 app.use("/api/transactions", transactionRouter);
+app.use("/api/wallet", walletrouter);
 
 export default app;
